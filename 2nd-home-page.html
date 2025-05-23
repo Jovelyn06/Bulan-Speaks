@@ -1,0 +1,204 @@
+<!DOCTYPE html> <!DOCTYPE html> <html lang="en"> <head>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulan Community Survey - Report Issue</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            background-color: ghostwhite;
+            color: black;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 700px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        hr {
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+        select, textarea, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .confirmation-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            margin-top: 25px;
+            display: none;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bulan Community Survey - Report an Issue</h1>
+        <hr>
+        <p>We value your feedback! Please report any issues you're facing, and let us know how we can improve.</p>
+
+        <form id="issue-form">
+            <h2>Describe the Problem</h2>
+            <textarea id="problem_report" name="problem_report" rows="6" placeholder="Describe the specific problem you are facing."></textarea>
+
+            <label for="problem_file">Upload Footage (Optional):</label>
+            <input type="file" id="problem_file" name="problem_file" accept="image/*, video/*">
+
+            <h2>Satisfaction Rating</h2>
+
+            <label for="healthcare_rating">Healthcare:</label>
+            <select id="healthcare_rating" name="healthcare_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+            
+            <label for="community_services_rating">Community Services:</label>
+            <select id="officials_service_rating" name="officials_service_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+
+            <label for="officials_service_rating">Barangay Officials Service:</label>
+            <select id="officials_service_rating" name="officials_service_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+            
+            <label for="safety_rating">Safety and security:</label>
+            <select id="projects_rating" name="projects_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+            
+            <label for="cleanliness_rating">Community Projects:</label>
+            <select id="projects_rating" name="projects_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+            
+            <label for="projects_rating">Community Projects:</label>
+            <select id="projects_rating" name="projects_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+
+            <label for="environment_rating">Environmental Awareness:</label>
+            <select id="environment_rating" name="environment_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+
+            <label for="public_transport_rating">Public transportation:</label>
+            <select id="environment_rating" name="environment_rating">
+                <option value="">Select Rating</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Very Satisfactory">Very Satisfactory</option>
+                <option value="Satisfactory">Satisfactory</option>
+                <option value="Needs Improvement">Needs Improvement</option>
+                <option value="Unsatisfactory">Unsatisfactory</option>
+                <option value="Very Unsatisfactory">Very Unsatisfactory</option>
+            </select>
+
+            <button type="submit" class="button">Submit Issue</button>
+        </form>
+
+        <div id="confirmation" class="confirmation-message">
+            Thank you for your submission! Your issue has been successfully reported.
+        </div>
+    </div>
+</body>
+</html

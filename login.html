@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BULAN SPEAKS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://assets.onecompiler.app/43fqtujtr/43fqtuwaa/Screenshot_2025-04-11-12-04-45-60.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #663399;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #663399;
+    }
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-image: url('https://assets.onecompiler.app/43fqtujtr/43fqtuwaa/76a9ba6f-ff20-4108-b748-226f2783d80e.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto 1rem auto;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .tabs button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: #663399;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+    }
+    .tabs button.active {
+      color: #663399;
+      border-bottom: 2px solid #663399;
+    }
+    .form {
+      display: none;
+      flex-direction: column;
+    }
+    .form.active {
+      display: flex;
+    }
+    label {
+      text-align: left;
+      color: #663399;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+    input, textarea {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      color: #663399;
+      font-size: 1rem;
+    }
+    button.submit {
+      background-color: #663399;
+      color: white;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button.submit:hover {
+      background-color: #5a2d8a;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: #663399;
+    }
+    .remember-me input {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">BULAN SPEAKS</div>
+    <div class="profile-pic"></div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(event, 'login')">Log In</button>
+      <button class="tab-btn" onclick="switchTab(event, 'signup')">Create Account</button>
+    </div>
+
+    <form id="login" class="form active" autocomplete="off">
+      <label for="loginUsername">Username:</label>
+      <input id="loginUsername" type="text" placeholder="Username" required />
+      <label for="loginPassword">Password:</label>
+      <input id="loginPassword" type="password" placeholder="Password" required />
+      <div class="remember-me">
+        <input type="checkbox" id="rememberMe" />
+        <label for="rememberMe">Remember Me</label>
+      </div>
+      <button class="submit" type="submit">Log In</button>
+    </form>
+
+    <form id="signup" class="form" autocomplete="off">
+      <label for="signupUsername">Username:</label>
+      <input id="signupUsername" type="text" placeholder="Username" required />
+      <label for="signupPassword">Password:</label>
+      <input id="signupPassword" type="password" placeholder="Password" required />
+      <label for="signupPhone">Phone Number:</label>
+      <input id="signupPhone" type="tel" placeholder="Phone Number" required />
+      <label for="signupAddress">Home Address:</label>
+      <textarea id="signupAddress" placeholder="Home Address" rows="2" required></textarea>
+      <button class="submit" type="submit">Create Account</button>
+    </form>
+  </div>
+
+  <script>
+    let accounts = [];
+    function switchTab(event, tab) {
+      document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    document.getElementById('signup').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
+      const phone = document.getElementById('signupPhone').value;
+      const address = document.getElementById('signupAddress').value;
+
+      const existing = accounts.find(acc => acc.username === username);
+      if (existing) {
+        alert('Username already registered. Please use another username.');
+        return;
+      }
+
+      accounts.push({ username, password, phone, address });
+      alert('Account created successfully!');
+      switchTab({target: document.querySelector('.tab-btn')}, 'login');
+    });
+
+    document.getElementById('login').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const loginUsername = document.getElementById('loginUsername').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+
+      const account = accounts.find(acc => acc.username === loginUsername && acc.password === loginPassword);
+      if (account) {
+        alert('Login successful! Welcome, ' + account.username);
+        if (rememberMe) {
+          localStorage.setItem('rememberedUsername', loginUsername);
+        } else {
+          localStorage.removeItem('rememberedUsername');
+        }
+        window.location.href = "1st-home-page.html";
+      } else {
+        alert('Incorrect username or password!');
+      }
+    });
+
+    window.onload = function() {
+      const savedUsername = localStorage.getItem('rememberedUsername');
+      if (savedUsername) {
+        alert('Auto-login...');
+        window.location.href = "1st-home-page.html";
+      }
+    };
+  </script>
+</body>
+</html>

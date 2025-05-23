@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bulan Speaks</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1, h2, label, p {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    .button {
+      background-color: rebeccapurple;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .about-content {
+      display: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease-out;
+    }
+    .about-content.show {
+      display: block;
+      max-height: 500px;
+    }
+    img {
+      display: block;
+      margin: 15px auto;
+      max-width: 100%;
+      height: auto;
+    }
+    hr {
+      margin: 20px 0;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var aboutButton = document.getElementById('about-button');
+      var aboutContent = document.querySelector('.about-content');
+
+      aboutButton.addEventListener('click', function () {
+        aboutContent.classList.toggle('show');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Bulan Speaks</h1>
+    <img src="https://assets.onecompiler.app/43fqtujtr/43fses54t/img_20220603_112641%20(1).jpg" alt="Cover photo" />
+    <hr />
+    <div class="about-container">
+      <button id="about-button" class="button" type="button">About Bulan Speaks</button>
+      <div class="about-content">
+        <p>
+          Bulan Speaks is a platform dedicated to allowing the Bulaneño community to report issues and share concerns about their selected barangay. Users can also rate services such as healthcare, infrastructure, projects, and many more. This provides valuable insight into the challenges faced by the community. Bulan Speaks also serves as a progress tracker, offering a way to track the progress of improvements through ongoing reviews. We compile user reports and send them directly to the local government units (LGUs), ensuring the community's voices are heard and promoting greater transparency and accountability. Through this platform, we aim to give the community a space where they can report issues, speak their concerns, and encourage them to speak up for a better community and positive change.
+        </p>
+        <p>
+          Together, we can strive for a better Bulan!
+        </p>
+        <hr />
+      </div>
+    </div>
+
+    <p>Help us improve our community by taking this short survey.</p>
+
+    <form action="2nd-home-page.html" method="get" id="survey-form">
+      <h2>Select your Barangay</h2>
+      <!-- Accessibility: label for select -->
+      <label for="barangay">Barangay</label>
+      <select id="barangay" name="barangay" required title="Select your barangay">
+        <option value="">-- Select your Barangay --</option>
+        <option value="A. Bonifacio (Tinurilan)">A. Bonifacio (Tinurilan)</option>
+        <option value="Abad Santos (Kambal)">Abad Santos (Kambal)</option>
+        <option value="Abuyog">Abuyog</option>
+        <option value="Aguinaldo (Lipata Dako)">Aguinaldo (Lipata Dako)</option>
+        <option value="Albay">Albay</option>
+        <option value="Antipolo">Antipolo</option>
+        <option value="Aquino (Imelda)">Aquino (Imelda)</option>
+        <option value="Beguin">Beguin</option>
+        <option value="Bical">Bical</option>
+        <option value="Bonga">Bonga</option>
+        <option value="Butag">Butag</option>
+        <option value="Cadandanan">Cadandanan</option>
+        <option value="Calomagon">Calomagon</option>
+        <option value="Calpi">Calpi</option>
+        <option value="Cocok-Cabitan">Cocok-Cabitan</option>
+        <option value="Daganas">Daganas</option>
+        <option value="Danao">Danao</option>
+        <option value="Dolos">Dolos</option>
+        <option value="E. Quirino (Pinangomhan)">E. Quirino (Pinangomhan)</option>
+        <option value="Fabrica">Fabrica</option>
+        <option value="G. Del Pilar (Tanga)">G. Del Pilar (Tanga)</option>
+        <option value="Gate">Gate</option>
+        <option value="Inararan">Inararan</option>
+        <option value="J. Gerona (Biton)">J. Gerona (Biton)</option>
+        <option value="J.P. Laurel (Pon-od)">J.P. Laurel (Pon-od)</option>
+        <option value="Jamorawon">Jamorawon</option>
+        <option value="Lajong">Lajong</option>
+        <option value="Libertad (Calle Putol)">Libertad (Calle Putol)</option>
+        <option value="Magsaysay (Bongog)">Magsaysay (Bongog)</option>
+        <option value="Managa-naga">Managa-naga</option>
+        <option value="Marinab">Marinab</option>
+        <option value="Montecalvario">Montecalvario</option>
+        <option value="N. Roque (Calayugan)">N. Roque (Calayugan)</option>
+        <option value="Namo">Namo</option>
+        <option value="Nasuje">Nasuje</option>
+        <option value="Obrero">Obrero</option>
+        <option value="Osmeña (Lipata Saday)">Osmeña (Lipata Saday)</option>
+        <option value="Otavi">Otavi</option>
+        <option value="Padre Diaz">Padre Diaz</option>
+        <option value="Palale">Palale</option>
+        <option value="Quezon (Cabarawan)">Quezon (Cabarawan)</option>
+        <option value="R. Gerona">R. Gerona</option>
+        <option value="Recto">Recto</option>
+        <option value="Roxas (Busay)">Roxas (Busay)</option>
+        <option value="Sagrada">Sagrada</option>
+        <option value="San Francisco (Polot)">San Francisco (Polot)</option>
+        <option value="San Isidro (Cabugaan)">San Isidro (Cabugaan)</option>
+        <option value="San Juan Bag-o">San Juan Bag-o</option>
+        <option value="San Juan Daan">San Juan Daan</option>
+        <option value="San Rafael (Togbongon)">San Rafael (Togbongon)</option>
+        <option value="San Ramon">San Ramon</option>
+        <option value="San Vicente">San Vicente</option>
+        <option value="Santa Remedios">Santa Remedios</option>
+        <option value="Santa Teresita (Trece)">Santa Teresita (Trece)</option>
+        <option value="Sigad">Sigad</option>
+        <option value="Somagongsong">Somagongsong</option>
+        <option value="Tarhan">Tarhan</option>
+        <option value="Taromata">Taromata</option>
+        <option value="Zone 1 (Ilawod)">Zone 1 (Ilawod)</option>
+        <option value="Zone 2 (Sabang)">Zone 2 (Sabang)</option>
+        <option value="Zone 3 (Central)">Zone 3 (Central)</option>
+        <option value="Zone 4 (CBD)">Zone 4 (CBD)</option>
+        <option value="Zone 5 (Canipaan)">Zone 5 (Canipaan)</option>
+        <option value="Zone 6 (Baybay)">Zone 6 (Baybay)</option>
+        <option value="Zone 7 (Iraya)">Zone 7 (Iraya)</option>
+        <option value="Zone 8 (Loyo)">Zone 8 (Loyo)</option>
+      </select>
+      <button type="submit" class="button">Next</button>
+    </form>
+  </div>
+</body>
+</html>
